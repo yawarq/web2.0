@@ -119,6 +119,20 @@ app.get('/get_total_amount', async (req,res)=>{
 });
 
 
+app.get('/pick_winner', async(req,res)=>{
+            
+  var result = await get_total_amount();
+      
+  var total_amount = result[0].total_amount;
+  console.log(total_amount);
+
+
+});
+
+
+
+
+
 app.listen(3000,()=>{
     console.log('server is running on port 3000');
 });
