@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const {save_user_information, get_list_of_participants} = require('./models/server_db');
+const {save_user_information, get_list_of_participants,delete_users} = require('./models/server_db');
 const path = require('path');
 const publicPath = path.join(__dirname, './public');
 const paypal = require('paypal-rest-sdk');
@@ -187,7 +187,7 @@ paypal.payment.create(create_payment_json, function (error, payment) {
       console.log(payment);
       for(var i = 0; i< payment.links.length; i++){
         if(payment.links[i].rel =='approval_url'){
-          return res.send(payment.links[i].href);
+          return res.redirect(payment.links[i].href);
         }
       }
   }
