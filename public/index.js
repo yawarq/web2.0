@@ -21,7 +21,7 @@ class App extends React.Component{
             amount:this.state.amount,
             email:this.state.email
         })
-        console.log(response);
+        window.location.href=response.data;
     }
 
 
