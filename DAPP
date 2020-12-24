@@ -1,0 +1,42 @@
+pragma solidity >=0.7.0 <0.8.0;
+
+contract Lottery{
+      
+      //variable to store manager public address
+      
+      address public manager;
+      //0x5B38Da6a701c568545dCfcB03FcB875f56beddC4
+      
+      
+      //storing the address of the participants
+      address[] public participants; //array of addresses
+      
+      
+      constructor () public{
+          manager = msg.sender;
+      }
+      
+      
+      //each user will pay a certain amount to enter the Lottery
+      
+      function enterLottery() public payable{
+          //to get the value of the sender
+          require(msg.value>0.01 ether);
+          participants.push(msg.sender);// address of the sender
+      }
+      
+      function pickWinner() public{
+          //check only that the manager can call the pick winner function
+           require(msg.sender == manager);
+           
+           //select a random participant
+           
+           
+           
+           
+           
+      }
+      
+      
+     
+}
